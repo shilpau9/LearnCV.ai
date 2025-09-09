@@ -107,7 +107,7 @@ def show_histogram(img, title="Histogram"):
     st.pyplot(fig)
 
 def main():
-    st.title("🖼️ Image Processing Laboratory")
+    st.title(" Image Processing Laboratory")
     st.markdown("**Compressed GUI for Image Processing Operations**")
     
     # Initialize session state
@@ -115,7 +115,7 @@ def main():
         st.session_state.processed_img = None
     
     # Sidebar - Image Upload
-    st.sidebar.header("📁 Upload Image")
+    st.sidebar.header(" Upload Image")
     uploaded_file = st.sidebar.file_uploader("Choose image", type=['jpg', 'jpeg', 'png', 'bmp'])
     
     if uploaded_file:
@@ -129,7 +129,7 @@ def main():
         st.sidebar.write(f"**Size:** {original.shape[1]}×{original.shape[0]}")
         
         # Processing tabs
-        tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🔄 Filters", "🔍 Edges", "⚡ Morph", "🌟 Enhance", "📊 Frequency", "📈 Analysis"])
+        tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([" Filters", " Edges", " Morph", " Enhance", "Frequency", " Analysis"])
         
         # Filters Tab
         with tab1:
@@ -267,7 +267,7 @@ def main():
         
         # Download Section
         if st.session_state.processed_img is not None:
-            st.header("💾 Download")
+            st.header(" Download")
             processed = st.session_state.processed_img
             if len(processed.shape) == 3:
                 pil_img = Image.fromarray(cv2.cvtColor(processed, cv2.COLOR_BGR2RGB))
@@ -279,7 +279,8 @@ def main():
             st.download_button("Download Processed Image", buf.getvalue(), "processed.png", "image/png")
     
     else:
-        st.info("👆 Upload an image to start processing!")
+        st.info(" Upload an image to start processing!")
 
 if __name__ == "__main__":
+
     main()
